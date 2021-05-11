@@ -1,10 +1,18 @@
 import { GetServerSideProps, GetStaticPropsContext } from "next";
 import { services } from "../data";
 import ServiceCard from "../components/ServiceCard";
+import { motion } from "framer-motion";
+import { fadeInUp, routAnimattion, stagger } from "../animations";
 
 const index = () => {
   return (
-    <div className="flex flex-col flex-grow px-6 pt-0">
+    <motion.div
+      variants={routAnimattion}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="flex flex-col flex-grow px-6 pt-0"
+    >
       <h5 className="my-3 font-medium">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
         corporis expedita maiores. Quidem officia perferendis a, optio expedita
@@ -18,18 +26,24 @@ const index = () => {
         <h6 className="my-3 text-xl font-bold tracking-wide">
           What I am doing
         </h6>
-        <div className="grid gap-6 lg:grid-cols-2">
+        <motion.div
+          className="grid gap-6 lg:grid-cols-2"
+          variants={stagger}
+          initial="initial"
+          animate="animate"
+        >
           {services.map((service) => (
-            <div
+            <motion.div
+              variants={fadeInUp}
               className="col-span-2 p-2 bg-gray-200 rounded-lg md:col-span-1 dark:bg-dark-200"
               key={service.title}
             >
               <ServiceCard service={service} />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
