@@ -1,0 +1,13 @@
+## DEPLOYMENT ##
+
+#1. Set engines
+"engines" : {
+    "node": "version",
+    "npm": "version"
+}
+
+#2. Change start script
+"start": "next start -p $PORT"
+
+#3. Add this to script
+"heroku-postbuild": "npm run build"
