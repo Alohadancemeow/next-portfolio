@@ -1,6 +1,9 @@
-import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
+import { AiFillGithub, AiFillMediumCircle } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { GiTie } from "react-icons/gi";
+import { ImMail4 } from "react-icons/im";
+import { BsMoon, BsSun } from "react-icons/bs";
+import { RiFacebookCircleFill, RiSteamFill } from "react-icons/ri";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
@@ -27,27 +30,30 @@ const Sidebar = () => {
         Rabbit
       </h3>
       <p className="px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200 dark:bg-black-500">
-        Wep Deverloper
+        Dota 2 feeder
       </p>
       <a
         className="flex items-center justify-center px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200 dark:bg-black-500"
-        href=""
-        download="name"
+        href="/mmr.jpg"
+        download="mmr.jpg"
       >
         <GiTie className="w-6 h-6" />
-        Download Resume
+        <span>Download MMR</span>
       </a>
 
       {/* //todo: social icon */}
-      <div className="flex justify-around w-9/12 mx-auto my-5 text-green md:w-full">
-        <a href="">
-          <AiFillYoutube className="w-8 h-8 cursor-pointer" />
+      <div className="flex justify-around w-9/12 mx-auto my-8 text-green md:w-full">
+        <a href="https://www.facebook.com/alohadancemeow/">
+          <RiFacebookCircleFill className="w-8 h-8 cursor-pointer" />
         </a>
-        <a href="">
+        <a href="https://github.com/Alohadancemeow">
           <AiFillGithub className="w-8 h-8 cursor-pointer" />
         </a>
-        <a href="">
-          <AiFillLinkedin className="w-8 h-8 cursor-pointer" />
+        <a href="https://medium.com/@3rd_rabbit">
+          <AiFillMediumCircle className="w-8 h-8 cursor-pointer" />
+        </a>
+        <a href="https://steamcommunity.com/profiles/76561198144315513/?fbclid=IwAR3cRpS5LRjx5JgacRtq-gDCl8rAd5Tn5O_ZM-9yocMR496FH7FNX2qExpc">
+          <RiSteamFill className="w-8 h-8 cursor-pointer" />
         </a>
       </div>
 
@@ -58,27 +64,31 @@ const Sidebar = () => {
       >
         <div className="flex items-center justify-center space-x-2">
           <GoLocation />
-          <span>Tokyo, Japan</span>
+          <span>My time at portia, Portia</span>
         </div>
-        <p className="my-2">email@gmail.com</p>
-        <p className="my-2">0987654321</p>
+        <p className="my-2">rabbit.bot@outlook.com</p>
+        <p className="my-2">Legend - Ancient</p>
       </div>
 
       {/* //todo: email btn */}
-      <button
-        className="w-8/12 px-5 py-2 my-2 text-white rounded-full cursor-pointer bg-dark bg-gradient-to-r from-green to-blue-400 focus:outline-none"
-        onClick={() => window.open("mailto:rabbit.bot@outlook.com")}
-      >
-        Email Me
-      </button>
+      <div className="py-4 my-5">
+        <div
+          className="flex items-center justify-center px-4 py-2 my-2 space-x-3 text-lg bg-gray-200 cursor-pointer dark:bg-dark-200"
+          onClick={() => window.open("mailto:rabbit.bot@outlook.com")}
+        >
+          <ImMail4 />
+          <span>Email Me</span>
+        </div>
 
-      {/* //todo: remove bg black */}
-      <button
-        onClick={changeTheme}
-        className="w-8/12 px-5 py-2 my-2 text-white rounded-full cursor-pointer bg-dark bg-gradient-to-r from-green to-blue-400"
-      >
-        Toggle Theme
-      </button>
+        {/* //todo: remove bg black */}
+        <div
+          onClick={changeTheme}
+          className="flex items-center justify-center px-4 py-2 my-2 space-x-3 text-lg bg-gray-200 cursor-pointer dark:bg-dark-200"
+        >
+          {theme === "light" ? <BsMoon /> : <BsSun />}
+          <span>Change Theme</span>
+        </div>
+      </div>
     </div>
   );
 };
